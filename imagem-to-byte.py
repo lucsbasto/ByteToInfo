@@ -24,6 +24,6 @@ for i in range(len_bytes):
         png['profundidade de bit'] = deep_bit;
         png['tipo da cor'] = color_type;
         png['metodo de filtro'] = filter_method;
+print (png);
 data.close()
 file.close()
-
