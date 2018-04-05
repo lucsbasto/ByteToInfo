@@ -12,14 +12,16 @@ for i in range(len_bytes):
     oito_bytes = file.read(8);
     if oito_bytes == b"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a": #8 primeiros bytes do PNG
         ihdr = file.read(8); #os 8 primeiros bytes depois da assinatura são do ihdr
-        print (ihdr);
         width = file.read(4); #os 4 primeiros bytes depois do ihdr são da largura
         width = int.from_bytes(width, byteorder='big', signed=False);#converte de byte pra inteiro
         height=file.read(4);#os 4 primeiros bytes depois da largura são da altura
         height=int.from_bytes(height, byteorder='big', signed=False);
+        deep_bit = file.read(1);
+        deep_bit = int.from_bytes(deep_bit, byteorder='big', signed=False)
         png['tipo'] = 'PNG';
         png['width'] = width;
         png['height'] = height
+        png['profundidade de bit'] = deep_bit;
 data.close()
 file.close()
 
