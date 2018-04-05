@@ -12,16 +12,17 @@ for i in range(len_bytes):
     oito_bytes = file.read(8);
     if oito_bytes == b"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a": #8 primeiros bytes do PNG
         ihdr = file.read(8); #os 8 primeiros bytes depois da assinatura são do ihdr
-        width = file.read(4); #os 4 primeiros bytes depois do ihdr são da largura
-        width = int.from_bytes(width, byteorder='big', signed=False);#converte de byte pra inteiro
-        height=file.read(4);#os 4 primeiros bytes depois da largura são da altura
-        height=int.from_bytes(height, byteorder='big', signed=False);
-        deep_bit = file.read(1);
-        deep_bit = int.from_bytes(deep_bit, byteorder='big', signed=False)
+
+        width = int.from_bytes(file.read(4), byteorder='big', signed=False);#os 4 primeiros bytes depois do ihdr são da largura
+        height=int.from_bytes(file.read(4), byteorder='big', signed=False);#os 4 primeiros bytes depois da largura são da altura
+        deep_bit = int.from_bytes(file.read(1), byteorder='big', signed=False);#o 1 byte depois da altura é a profundidade do bit
+        # 0, 2 ,3 ,4 e 6 são validos
+        color_type = int.from_bytes(file.read(1), byteorder='big', signed=False);#o 1 bit depois da profundidade do bit é o tipo da cor
         png['tipo'] = 'PNG';
         png['width'] = width;
         png['height'] = height
         png['profundidade de bit'] = deep_bit;
+        png['tipo da cor'] = color_type;
 data.close()
 file.close()
 
