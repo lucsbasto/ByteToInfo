@@ -15,7 +15,7 @@ Script em python que extrai algumas informações de imagens JPG e PNG.
 
 # Sobre
 
-Trabalho da Disciplina de Compiladores 2018/1 do CEULP/ULBRA
+Trabalho da Disciplina de Multimídia e Hipermídia - 2018/1 do CEULP/ULBRA
 
 Ciência da Computação
 
