@@ -1,3 +1,6 @@
+
+[![GitHub license](https://img.shields.io/github/license/lucsbasto/IMG-Info-Extractor.svg)](https://github.com/lucsbasto/IMG-Info-Extractor/blob/master/LICENSE)
+
 # IMG-Info-Extractor
 
 Script em python que extrai algumas informações de imagens JPG e PNG.
